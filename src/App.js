@@ -1,24 +1,16 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
+import Header from './components/Header/Header';
 import './style.css';
-const tg = window.Telegram.WebApp;
 
-function App() {
-
+const App = () => {
     useEffect(() => {
         tg.ready();
     }, []);
 
-    const onClose = () => {
-        tg.close();
-    }
-
     return (
         <div className="App">
-            <button onClick={onClose}>
-                Close
-            </button>
+            <Header />
         </div>
     );
 }
-
 export default App;
