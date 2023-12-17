@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
-
-import './Form.css';
 import { useTelegram } from '../../hooks/useTelegram';
+import './Form.css';
 
 const Form = () => {
 	const [street, setStreet] = useState('');
 	const [country, setCountry] = useState('');
 	const [subject, setSubject] = useState('physical');
-	const {tg} = useTelegram();
+	const { tg } = useTelegram();
 
 	useEffect(() => {
 		tg.MainButton.setParams({
@@ -37,22 +36,32 @@ const Form = () => {
 
 	return (
 		<div className={'form'}>
-			<h3>Введите ваши данные:</h3>
-			<input 
-				type="text"
-				value={country}
-				onChange={onChangeCountry} 
-				placeholder={'Страна'} 
-				className={'input'} 
-			/>
-			<input 
-				type="text"
-				value={street}
-				onChange={onChangeStreet} 
-				placeholder={'Улица'} 
-				className={'input'} 
-			/>
-			<select 
+			<h3>Введите ваши данные</h3>
+			<div className={'input'}>
+				<input
+					type="text"
+					value={country}
+					onChange={onChangeCountry}
+					className={'input-field'}
+					required={true}
+				/>
+				<label className={'input-label'}>
+					Страна
+				</label>
+			</div>
+			<div className={'input'}>
+				<input
+					type="text"
+					value={street}
+					onChange={onChangeStreet}
+					className={'input-field'}
+					required={true}
+				/>
+				<label className={'input-label'}>
+					Улица
+				</label>
+			</div>
+			<select
 				value={subject}
 				onChange={onChangeSubject}
 				className={'select'}
