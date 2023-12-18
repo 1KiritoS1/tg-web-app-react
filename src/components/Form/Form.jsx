@@ -15,16 +15,16 @@ const Form = () => {
 			subject
 		}
 		tg.sendData(JSON.stringify(data));
-	}, []);
+	}, [country, street, subject]);
 
-	// tg.MainButton.onClick(onSendData); // 1
+	tg.MainButton.onClick(onSendData); // 1
 
-	useEffect(() => {
-		tg.onEvent('mainButtonClicked', onSendData);
-		return () => {
-			tg.offEvent('mainButtonClicked', onSendData);
-		}
-	}, []); // 2
+	// useEffect(() => {
+	// 	tg.onEvent('mainButtonClicked', onSendData);
+	// 	return () => {
+	// 		tg.offEvent('mainButtonClicked', onSendData);
+	// 	}
+	// }, []); // 2
 
 	useEffect(() => {
 		tg.MainButton.setParams({
