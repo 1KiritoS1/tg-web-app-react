@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useTelegram } from '../../hooks/useTelegram';
 import './Form.css';
 
@@ -7,6 +7,24 @@ const Form = () => {
 	const [country, setCountry] = useState('');
 	const [subject, setSubject] = useState('physical');
 	const { tg } = useTelegram();
+
+	const onSendData = useCallback(() => {
+		const data = {
+			country,
+			street,
+			subject
+		}
+		tg.sendData(JSON.stringify(data));
+	}, []);
+
+	tg.MainButton.onClick(onSendData); // 1
+
+	// useEffect(() => {
+	// 	tg.onEvent('mainButtonClicked', onSendData);
+	// 	return () => {
+	// 		tg.offEvent('mainButtonClicked', onSendData);
+	// 	}
+	// }, []); // 2
 
 	useEffect(() => {
 		tg.MainButton.setParams({
@@ -37,30 +55,19 @@ const Form = () => {
 	return (
 		<div className={'form'}>
 			<h3>Введите ваши данные</h3>
-			<div className={'input'}>
-				<input
-					type="text"
-					value={country}
-					onChange={onChangeCountry}
-					className={'input-field'}
-					required={true}
-				/>
-				<label className={'input-label'}>
-					Страна
-				</label>
-			</div>
-			<div className={'input'}>
-				<input
-					type="text"
-					value={street}
-					onChange={onChangeStreet}
-					className={'input-field'}
-					required={true}
-				/>
-				<label className={'input-label'}>
-					Улица
-				</label>
-			</div>
+			<input
+				type="text"
+				value={country}
+				onChange={onChangeCountry}
+				className={'input'}
+
+			/>
+			<input
+				type="text"
+				value={street}
+				onChange={onChangeStreet}
+				className={'input'}
+			/>
 			<select
 				value={subject}
 				onChange={onChangeSubject}
