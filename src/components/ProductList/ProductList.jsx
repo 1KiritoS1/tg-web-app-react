@@ -39,20 +39,24 @@ const ProductList = () => {
 		updateButton(newItems);
 	}
 
-	const onRemove = (product) => {
-		
-	}
+	// const onRemove = (product) => {
+	// 	let newItems = [];
+	// 	newItems = addedItems.filter(item => item.id !== product.id);
+
+	// 	setAddedItems(newItems);
+	// }
 
 	return (
 		<div className={'list'}>
-			{products.map(item => {
+			{products.map(item => (
 				<ProductItem
+					key={item.id}
 					product={item}
-					onAdd={onAdd}
-					onRemove={onRemove}
 					className={'item'}
+					onAdd={onAdd}
+					// onRemove={onRemove}
 				/>
-			})}
+			))}
 		</div>
 	)
 }

@@ -1,27 +1,43 @@
 import React from 'react';
-import Button from '../Button/Button';
 import './ProductItem.css';
 
-const ProductItem = ({ product, onAdd, onRemove, className }) => {
-
+const ProductItem = ({ product, onAdd, className }) => {
 	const onAddHandler = () => {
 		onAdd(product);
 	}
 	
+	// const onRemoveHandler = () => {
+	// 	onRemove(product);
+	// }
+
 	return (
-		<div className={'product' + className}>
-			<div className={'img'} />
-			<div className={'title'}>{product.title}</div>
-			<div className={'description'}>{product.description}</div>
-			<div className={'price'}>
-				<span>Стоимость: <b>{product.price}</b></span>
+		<div className={className}>
+			<div className={'item-top'}>
+				<img className={'img'} src={product.img} />
+				<div className={'info'}>
+					<div className={'info-inner'}>
+						<span className={'name'}>{product.title}</span>
+						<span className={'desc'}>{product.description}</span>
+					</div>
+					<div className={'size'}>
+						Доступные размеры : <span>{product.sizes.join(', ')}</span>
+					</div>
+				</div>
 			</div>
-			<Button
-				onClick={onAddHandler}
-				className={'add-btn'}
-			>
-				Добавить в корзину
-			</Button>
+			<div className={'item-bottom'}>
+				<div className={'bg'}>
+					<div className={'bg-inner'}></div>
+				</div>
+				<button 
+					onClick={onAddHandler}
+					className={'cart'}
+				>
+					<span className={'price'}>${product.price}</span>
+					<span className={'add-to-cart'}>
+						<span>Добавить в корзину</span>
+					</span>
+				</button>
+			</div>
 		</div>
 	)
 }

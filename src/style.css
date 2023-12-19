@@ -18,3 +18,8 @@ input {
 	appearance: none;
 	border-radius: 0;
 }
+
+button {
+	outline: none;
+	cursor: pointer;
+}

@@ -1,16 +1,159 @@
-.product {
-	width: 170px;
-	padding: 15px;
-	border: 1px solid var(--tg-theme-button-color);
+.item-top {
+	width: 100%;
+	height: 300px;
+	position: relative;
+	overflow: hidden;
+	text-align: center;
+}
 
-	display: flex;
-	flex-direction: column;
+.item-bottom {
+	width: 100%;
+	height: 60px;
+	position: relative;
+	overflow: hidden;
 }
 
 .img {
+	padding: 20px 0;
+	transition: all .8s cubic-bezier(0, 0, 0.18, 1);
+	transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+}
+
+.info-inner {
 	width: 100%;
-	height: 100px;
-	margin: 0 auto;
-	background: lightgray;
+	bottom: 25px;
+	position: absolute;
+	transition: all .4s cubic-bezier(0, 0, 0.18, 1);
+	transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+}
+
+.name,
+.desc {
+	display: block;
+}
+
+.name {
+	font-family: 'PT Sans', sans-serif;
+	font-size: 18px;
+	color: #252525;
+	margin-bottom: 5px;
+}
+
+.desc {
+	font-family: 'Lato', sans-serif;
+	font-size: 12px;
+	text-transform: uppercase;
+	color: #8c8c8c;
+}
+
+.size {
+	width: 100%;
+	bottom: -20px;
+	position: absolute;
+
+	font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+	font-family: 'PT Sans', sans-serif;
+	color: #828282;
+	opacity: 0;
+
+	transition: all .3s cubic-bezier(0, 0, 0.18, 1);
+	transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+}
+
+.size span {
+	color: #252525;
+}
+
+.bg {
+	width: 200%; 
+	height: 100%;
+	background: #3f96cd;
+
+	position: absolute;
+	left: calc(-200% + 1px); 
+	transition: all .8s cubic-bezier(0, 0, 0.18, 1);
+	transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+}
+
+.bg-inner {
+	width: 50%;
+	height: 100%;
+	background: #464646;
+}
+
+.cart {
+	display: block;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	font-family: 'Lato', sans-serif;
+	font-weight: 700;
+
+	background: none;
+	border: none;
+}
+
+.price {
+	display: block;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	transition: all .6s cubic-bezier(0, 0, 0.18, 1);
+	transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+	transition-delay: .1s;
 	
+	font-size: 16px;
+	color: #252525;
+}
+
+.add-to-cart {
+	display: block;
+	position: absolute;
+	top: 50%;
+	left: 110%;
+	transform: translate(-50%, -50%);
+	transition: all .6s cubic-bezier(0, 0, 0.18, 1);
+	transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+	transition-delay: .1s;
+}
+
+.add-to-cart span {
+	font-size: 12px;
+	letter-spacing: 0.045em;
+	text-transform: uppercase;
+	white-space: nowrap;
+	color: #fff;
+
+	margin: 3px 0;
+}
+
+@media screen and (max-width: 767.98px) {
+	.item-top {
+		height: 290px;
+	}
+
+	.item-bottom {
+		height: 50px;
+	}
+
+	.img {
+		padding: 10px 0;
+	}
+
+	.name {
+		font-size: 16px;
+	}
+
+	.size {
+		font-size: 14px;
+	}
+
+	.size span {
+		display: block;
+	}
 }

@@ -2,9 +2,58 @@
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
+	gap: 10px;
+	padding: 15px 10px;
 }
 
 .item {
-	margin-right: 10px;
-	margin-bottom: 10px;
+	width: calc(50% - 5px);
+	padding: 15px;
+	background: #fff;
+	border: 1px solid lightgray;
+}
+
+.item:hover .img {
+	filter: blur(7px);
+	opacity: 0.4;
+}
+
+.item:hover .info-inner {
+	bottom: 155px;
+}
+
+.item:hover .size {
+	transition-delay: .3s;
+	bottom: 50px;
+	opacity: 1;
+}
+
+.item:hover .bg {
+	left: 0px;
+}
+
+.item:hover .price {
+	left: 20px;
+	transform: translateY(-50%);
+	color: #818181;
+}
+
+.item:hover .add-to-cart {
+	left: 50%;
+}
+
+@media screen and (max-width: 767.98px) {
+	.list {
+		font-size: 12px;
+	}
+
+	.item {
+		padding: 10px;
+	}
+
+	.item:hover .price {
+		opacity: 0;
+	}
+
+	
 }
