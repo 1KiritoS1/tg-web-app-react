@@ -22,6 +22,11 @@
 	bottom: 155px;
 }
 
+.item:hover .desc {
+	color: #5e5e5e;
+	text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.06);
+}
+
 .item:hover .size {
 	transition-delay: .3s;
 	bottom: 50px;
@@ -54,6 +59,12 @@
 	.item:hover .price {
 		opacity: 0;
 	}
+}
 
-	
+@media screen and (max-width: 460.98px) {
+	.item:hover .desc {
+		overflow: visible;
+		white-space: normal;
+		text-overflow: clip;
+	}
 }
