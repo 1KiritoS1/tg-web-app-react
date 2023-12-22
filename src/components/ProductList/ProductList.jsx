@@ -13,14 +13,18 @@ const getTotalPrice = (items) => {
 const ProductList = () => {
 	const [addedItems, setAddedItems] = useState([]);
 	const { tg, queryId } = useTelegram();
-
+	
 	const onSendData = useCallback(() => {
 		const data = {
 			products: addedItems,
 			totalPrice: getTotalPrice(addedItems),
 			queryId
 		};
-		fetch('http://localhost:8000', {
+		
+		console.log(data);
+		console.log('products: ', products);
+
+		fetch('https://web-app-bot-fbadb4b5a054.herokuapp.com/', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
