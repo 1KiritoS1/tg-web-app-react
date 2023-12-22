@@ -24,7 +24,7 @@ const ProductList = () => {
 		console.log(data);
 		console.log('products: ', products);
 
-		fetch('https://web-app-bot-fbadb4b5a054.herokuapp.com/', {
+		fetch('https://web-app-bot-fbadb4b5a054.herokuapp.com/web-data', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
